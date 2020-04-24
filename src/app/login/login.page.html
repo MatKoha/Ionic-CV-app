@@ -1,0 +1,55 @@
+<!-- Matias Kohanevic 1800715 -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title class="ion-text-center">myCV App</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-avatar>
+    <img src="/assets/avtr.jpeg">
+  </ion-avatar>
+  <form>
+    <ion-item lines="full">
+      <ion-toolbar class="ion-text-center">
+        <ion-title>Sign in</ion-title>
+      </ion-toolbar>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input type="text" placeholder="Email" clearInput #email required></ion-input>
+      <ion-icon name="mail" slot="start"></ion-icon>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input type="password" placeholder="Password" clearInput #password required></ion-input>
+      <ion-icon name="lock-closed" slot="start"></ion-icon>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="logIn(email, password)" expand="block">Sign in</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="secondary" type="submit" [routerLink]="['/welcome/introduction']"
+          routerLinkActive="router-link-active" expand="block">Skip Login</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-footer>
+    <ion-toolbar class="ion-text-center">
+      <ion-title>Don't have an account?</ion-title>
+    </ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button color="tertiary" type="submit" [routerLink]="['/registration']"
+          routerLinkActive="router-link-active" expand="block">Register</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>© 2020 myCV App</ion-title>
+  </ion-toolbar>
+</ion-footer>

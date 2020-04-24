@@ -1,3 +1,56 @@
+<!-- Matias Kohanevic 1800715 -->
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+  <ion-split-pane contentId="menu-content" when="xs" [disabled]="true"
+    (ionSplitPaneVisible)="onSplitPaneVisible(event)">
+    <ion-menu contentId="menu-content" menuId="menu-content" side="start" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-toggle>
+              <ion-button>
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </ion-buttons>
+          <ion-title>myCV menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <!--Use a-routerlink to link pages to menu-->
+          <ion-menu-toggle>
+            <ion-item [routerLink]="['/welcome/introduction']" routerLinkActive="router-link-active">
+              <ion-icon name="home-outline" slot="start"></ion-icon>
+              <ion-label>Welcome</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item [routerLink]="['/edskills/education']" routerLinkActive="router-link-active">
+              <ion-icon name="book-outline" slot="start"></ion-icon>
+              <ion-label>Education & Skills</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item [routerLink]="['/work-experience']" routerLinkActive="router-link-active">
+              <ion-icon name="construct-outline" slot="start"></ion-icon>
+              <ion-label>Work experience</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item [routerLink]="['/contact']" routerLinkActive="router-link-active">
+              <ion-icon name="call-outline" slot="start"></ion-icon>
+              <ion-label>Contact info</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+        <ion-menu-toggle>
+          <ion-button color="danger" (click)="authService.SignOut()" expand="full">Sign out</ion-button>
+        </ion-menu-toggle>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

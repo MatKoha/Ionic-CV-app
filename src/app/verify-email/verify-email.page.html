@@ -1,0 +1,38 @@
+<!-- Matias Kohanevic 1800715 -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Email verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+      <h2>Email verification needed </h2>
+      <p>
+        Please check your email and click on the link to verify your email address.
+      </p>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active" expand="block">Proceed to login
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="secondary" type="submit" (click)="authService.SendVerificationMail()" expand="block">
+          Resend Verification Email
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>© 2020 myCV App</ion-title>
+  </ion-toolbar>
+</ion-footer>
